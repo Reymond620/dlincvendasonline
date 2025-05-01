@@ -1,87 +1,88 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DL Inc</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DL inc</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>DL Inc.</header>
+  <div id="auth-container">
+    <form id="registerForm" class="auth-form">
+      <h2>Cadastre-se</h2>
 
-  <img src="settings-icon.png" class="settings-icon" id="settingsToggle" alt="Configurações">
+      <label for="name">Nome:</label>
+      <input type="text" id="name" name="name" required />
 
-  <div class="settings-panel" id="settingsPanel">
-    <button id="toggleTheme">Tema Escuro</button>
-  </div>
+      <label for="phone">Telefone (com DDD):</label>
+      <input type="tel" id="phone" name="phone" placeholder="+55 (45) 99999-9999" required />
+      <small>Ex: +55 (45) 99123-4567</small>
 
-  <div class="container">
-    <div class="profile-container hidden" id="profileContainer">
-      <img src="default-profile.jpg" alt="Foto de Perfil" class="profile-picture" id="profileImage">
-      <div class="profile-info">
-        <strong id="displayName"></strong>
-        <span id="displayEmail"></span>
-      </div>
-    </div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required />
 
-    <form id="loginForm">
-      <h2>Cadastro</h2>
-      <input type="text" id="username" placeholder="Nome de usuário" required>
-      <input type="email" id="email" placeholder="Email" required>
-      <input type="tel" id="phone" placeholder="Telefone (com DDD)" pattern="55\+ \(\d{2}\) \d{5}-\d{4}" required>
-      <input type="password" id="password" placeholder="Senha" required>
-      <input type="password" id="confirmPassword" placeholder="Confirmar Senha" required>
+      <label for="password">Senha:</label>
+      <input type="password" id="password" name="password" required />
+
       <button type="submit">Cadastrar</button>
     </form>
+  </div>
 
-    <section class="product-grid">
-      <div class="product-card">
-        <a href="https://pay.kirvano.com/3f685384-9307-4087-9b5b-e67210e7c7db?aff=2433f212-b5be-4447-a0f5-b1a85ac93cc6" target="_blank">
-          <h3>Primeira Venda Online</h3>
+  <div id="main-content" class="hidden">
+    <header>
+      <div class="profile-info">
+        <div class="profile-photo" id="profilePhoto"></div>
+        <div class="profile-details">
+          <span id="profileName"></span>
+          <small id="profileEmail"></small>
+        </div>
+      </div>
+      <h1>DL inc</h1>
+    </header>
+
+    <main>
+      <!-- Seus produtos -->
+      <section class="products">
+        <div class="product">
+          <h2>Primeira Venda Online</h2>
           <p>R$ 19,90</p>
-        </a>
-      </div>
-      <div class="product-card">
-        <a href="https://pay.kirvano.com/990ea318-e3e5-40e1-a7be-0dc772ba2f65?aff=65022237-65cf-454f-ab13-6f8594f798e8" target="_blank">
-          <h3>Primeira Venda em 24 Horas</h3>
+          <a href="https://pay.kirvano.com/3f685384-9307-4087-9b5b-e67210e7c7db?aff=2433f212-b5be-4447-a0f5-b1a85ac93cc6" target="_blank">Comprar</a>
+        </div>
+        <div class="product">
+          <h2>Primeira Venda em 24h</h2>
           <p>R$ 49,41</p>
-        </a>
-      </div>
-      <div class="product-card">
-        <a href="https://pay.kirvano.com/9adbf3bc-b757-46ba-a333-217680c85e1c?aff=5e5c4038-619b-44e7-926f-699e8e686a9e" target="_blank">
-          <h3>10 Primeiras Vendas</h3>
+          <a href="https://pay.kirvano.com/990ea318-e3e5-40e1-a7be-0dc772ba2f65?aff=65022237-65cf-454f-ab13-6f8594f798e8" target="_blank">Comprar</a>
+        </div>
+        <div class="product">
+          <h2>10 Primeiras Vendas</h2>
           <p>R$ 14,90</p>
-        </a>
-      </div>
-      <div class="product-card">
-        <a href="https://pay.kirvano.com/818816b6-b62b-41f0-b293-ea05110fc905?aff=fcc30de4-7589-4909-a63d-bae58c2a69ab" target="_blank">
-          <h3>Destrave Suas Vendas</h3>
+          <a href="https://pay.kirvano.com/9adbf3bc-b757-46ba-a333-217680c85e1c?aff=5e5c4038-619b-44e7-926f-699e8e686a9e" target="_blank">Comprar</a>
+        </div>
+        <div class="product">
+          <h2>Destrave suas Vendas</h2>
           <p>R$ 297,00</p>
-        </a>
+          <a href="https://pay.kirvano.com/818816b6-b62b-41f0-b293-ea05110fc905?aff=fcc30de4-7589-4909-a63d-bae58c2a69ab" target="_blank">Comprar</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <h3 style="color: #ff7f00;">Contato</h3>
+      <div class="contact-info">
+        <p>Email: reymondlima8@gmail.com</p>
+        <p>Telefone: +55 (45) 99818-1217</p>
       </div>
-    </section>
+      <div class="footer-end">
+        <a href="https://instagram.com/dlmelhor_01" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram" class="icon" />
+        </a>
+        <small>Reymond Delavalle Lima</small>
+      </div>
+    </footer>
   </div>
-
-  <div class="popup-overlay" id="imagePopup">
-    <img id="popupImg" class="popup-image" src="" alt="Imagem Ampliada">
-    <button class="close-popup" id="closePopup">X</button>
-  </div>
-
-  <footer>
-    <div class="left">
-      <h2>Contato</h2>
-      <p>Email: reymondlima8@gmail.com</p>
-      <p>Telefone: 55+ (45) 99818-1217</p>
-      <a href="https://instagram.com/DLMelhor_01" target="_blank">
-        <img src="instagram-icon.png" alt="Instagram" class="instagram-icon">
-      </a>
-    </div>
-    <div class="right">
-      <span>Reymond Delavalle Lima</span>
-    </div>
-  </footer>
 
   <script src="script.js"></script>
 </body>
 </html>
+
+
