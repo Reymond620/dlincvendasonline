@@ -1,44 +1,45 @@
-const registerForm = document.getElementById('registerForm');
-const mainContent = document.getElementById('main-content');
-const authContainer = document.getElementById('auth-container');
+// script.js
 
-function showProfile(user) {
-  document.getElementById('profileName').textContent = user.name;
-  document.getElementById('profileEmail').textContent = user.email;
+// Função para alternar tema escuro/claro
+const toggleThemeButton = document.getElementById('toggleTheme');
+const bodyElement = document.body;
 
-  authContainer.classList.add('hidden');
-  mainContent.classList.remove('hidden');
-}
+toggleThemeButton.addEventListener('click', () => {
+  bodyElement.classList.toggle('dark-theme');
+  toggleThemeButton.textContent = bodyElement.classList.contains('dark-theme') ? 'Tema Claro' : 'Tema Escuro';
+});
 
-registerForm.addEventListener('submit', function (e) {
-  e.preventDefault();
+// Função para alternar a aba lateral de configurações
+const settingsToggleButton = document.getElementById('settingsToggle');
+const settingsPanel = document.getElementById('settingsPanel');
 
-  const name = document.getElementById('name').value.trim();
-  const phone = document.getElementById('phone').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const password = document.getElementById('password').value.trim();
+settingsToggleButton.addEventListener('click', () => {
+  settingsPanel.classList.toggle('active');
+});
 
-  const phoneRegex = /^\+55\s?\(\d{2}\)\s?\d{4,5}-\d{4}$/;
+// Cadastro de informações do usuário
+const loginForm = document.getElementById('loginForm');
+const usernameField = document.getElementById('username');
+const emailField = document.getElementById('email');
+const phoneField = document.getElementById('phone');
+const passwordField = document.getElementById('password');
+const confirmPasswordField = document.getElementById('confirmPassword');
 
-  if (!phoneRegex.test(phone)) {
-    alert("Por favor, insira um número válido com DDD e código do país (ex: +55 (45) 99123-4567)");
+loginForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  // Verificar se as senhas coincidem
+  if (passwordField.value !== confirmPasswordField.value) {
+    alert('As senhas não coincidem!');
     return;
   }
 
-  const userData = {
-    name,
-    phone,
-    email,
-    password
-  };
+  // Salvar as informações no localStorage
+  localStorage.setItem('username', usernameField.value);
+  localStorage.setItem('email', emailField.value);
+  localStorage.setItem('phone', phoneField.value);
+  localStorage.setItem('password', passwordField.value);
 
-  localStorage.setItem('dl_user', JSON.stringify(userData));
-  showProfile(userData);
-});
-
-window.addEventListener('load', () => {
-  const user = JSON.parse(localStorage.getItem('dl_user'));
-  if (user) {
-    showProfile(user);
-  }
-});
+  // Exibir o perfil
+  document.getElementById('displayName').textContent = usernameField.value;
+  document.get

@@ -1,88 +1,84 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DL inc</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DL Inc. - Vendas Online</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="auth-container">
-    <form id="registerForm" class="auth-form">
-      <h2>Cadastre-se</h2>
+  <!-- Cabeçalho -->
+  <header>
+    <div id="logo">
+      <h1>DL Inc.</h1>
+    </div>
+    <div id="settingsToggle">
+      <img src="gear-icon.png" alt="Configurações" width="30">
+    </div>
+  </header>
 
-      <label for="name">Nome:</label>
-      <input type="text" id="name" name="name" required />
+  <!-- Aba lateral para configurações -->
+  <div id="settingsPanel">
+    <button id="toggleTheme">Tema Escuro</button>
+  </div>
 
-      <label for="phone">Telefone (com DDD):</label>
-      <input type="tel" id="phone" name="phone" placeholder="+55 (45) 99999-9999" required />
-      <small>Ex: +55 (45) 99123-4567</small>
+  <!-- Página inicial -->
+  <main id="mainContent">
+    <div id="profileContainer" class="hidden">
+      <div id="profileImageContainer">
+        <img id="profileImage" src="default-profile.jpg" alt="Foto de perfil">
+        <p id="displayName"></p>
+        <p id="displayEmail"></p>
+      </div>
+    </div>
 
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required />
+    <!-- Produtos -->
+    <section id="productSection">
+      <div class="product-card">
+        <img src="product1.jpg" alt="Produto 1">
+        <p>Produto 1</p>
+        <p>R$ 19,90</p>
+      </div>
+      <div class="product-card">
+        <img src="product2.jpg" alt="Produto 2">
+        <p>Produto 2</p>
+        <p>R$ 49,41</p>
+      </div>
+      <div class="product-card">
+        <img src="product3.jpg" alt="Produto 3">
+        <p>Produto 3</p>
+        <p>R$ 14,90</p>
+      </div>
+      <div class="product-card">
+        <img src="product4.jpg" alt="Produto 4">
+        <p>Produto 4</p>
+        <p>R$ 297,00</p>
+      </div>
+    </section>
+  </main>
 
-      <label for="password">Senha:</label>
-      <input type="password" id="password" name="password" required />
-
+  <!-- Cadastro -->
+  <div id="signupContainer">
+    <h2>Cadastro</h2>
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="Nome de usuário" required>
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="tel" id="phone" placeholder="Telefone (com DDD)" required>
+      <input type="password" id="password" placeholder="Senha" required>
+      <input type="password" id="confirmPassword" placeholder="Confirmar senha" required>
       <button type="submit">Cadastrar</button>
     </form>
   </div>
 
-  <div id="main-content" class="hidden">
-    <header>
-      <div class="profile-info">
-        <div class="profile-photo" id="profilePhoto"></div>
-        <div class="profile-details">
-          <span id="profileName"></span>
-          <small id="profileEmail"></small>
-        </div>
-      </div>
-      <h1>DL inc</h1>
-    </header>
-
-    <main>
-      <!-- Seus produtos -->
-      <section class="products">
-        <div class="product">
-          <h2>Primeira Venda Online</h2>
-          <p>R$ 19,90</p>
-          <a href="https://pay.kirvano.com/3f685384-9307-4087-9b5b-e67210e7c7db?aff=2433f212-b5be-4447-a0f5-b1a85ac93cc6" target="_blank">Comprar</a>
-        </div>
-        <div class="product">
-          <h2>Primeira Venda em 24h</h2>
-          <p>R$ 49,41</p>
-          <a href="https://pay.kirvano.com/990ea318-e3e5-40e1-a7be-0dc772ba2f65?aff=65022237-65cf-454f-ab13-6f8594f798e8" target="_blank">Comprar</a>
-        </div>
-        <div class="product">
-          <h2>10 Primeiras Vendas</h2>
-          <p>R$ 14,90</p>
-          <a href="https://pay.kirvano.com/9adbf3bc-b757-46ba-a333-217680c85e1c?aff=5e5c4038-619b-44e7-926f-699e8e686a9e" target="_blank">Comprar</a>
-        </div>
-        <div class="product">
-          <h2>Destrave suas Vendas</h2>
-          <p>R$ 297,00</p>
-          <a href="https://pay.kirvano.com/818816b6-b62b-41f0-b293-ea05110fc905?aff=fcc30de4-7589-4909-a63d-bae58c2a69ab" target="_blank">Comprar</a>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <h3 style="color: #ff7f00;">Contato</h3>
-      <div class="contact-info">
-        <p>Email: reymondlima8@gmail.com</p>
-        <p>Telefone: +55 (45) 99818-1217</p>
-      </div>
-      <div class="footer-end">
-        <a href="https://instagram.com/dlmelhor_01" target="_blank">
-          <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram" class="icon" />
-        </a>
-        <small>Reymond Delavalle Lima</small>
-      </div>
-    </footer>
+  <!-- Popup para visualização da imagem -->
+  <div id="imagePopup" class="hidden">
+    <div id="popupOverlay"></div>
+    <div id="popupContent">
+      <span id="closePopup">X</span>
+      <img id="popupImg" src="default-profile.jpg" alt="Imagem de perfil maior">
+    </div>
   </div>
 
   <script src="script.js"></script>
 </body>
 </html>
-
-
