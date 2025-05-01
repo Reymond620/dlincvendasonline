@@ -1,125 +1,116 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #f2f2f2;
-    color: #333;
-  }
-  
-  header {
-    background: #ff7f00;
-    color: white;
-    padding: 40px 0;
-    text-align: center;
-  }
-  
-  header h1 {
-    font-size: 2.8em;
-    margin: 0;
-  }
-  
-  header p {
-    font-size: 1.2em;
-    margin-top: 10px;
-  }
-  
-  .container {
-    max-width: 1000px;
-    margin: auto;
-    padding: 20px;
-  }
-  
-  .produtos h2 {
-    color: #333;
-    font-size: 2em;
-    margin-bottom: 30px;
-  }
-  
-  .produto {
-    background: white;
-    border-radius: 12px;
-    padding: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-  }
-  
-  .produto:hover {
-    transform: scale(1.02);
-  }
-  
-  .produto h4 {
-    margin: 0 0 10px;
-    color: #ff7f00;
-  }
-  
-  .produto .preco {
-    font-size: 1.3em;
-    color: #333;
-    margin-bottom: 15px;
-  }
-  
-  .produto a {
-    display: inline-block;
-    background: #ff7f00;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 8px;
-    text-decoration: none;
-    transition: background 0.3s ease;
-  }
-  
-  .produto a:hover {
-    background: #e66e00;
-  }
-  
-  .contato {
-    background-color: #eaeaea;
-    padding: 60px 0;
-  }
-  
-  .contato h3 {
-    font-size: 2.5em;
-    color: #ff7f00;
-    margin-bottom: 30px;
-    font-weight: bold;
-  }
-  
-  .informacoes {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-bottom: 30px;
-  }
-  
-  .info strong {
-    color: #232F3E;
-  }
-  
-  .info p {
-    color: #555;
-    margin: 5px 0;
-  }
-  
-  .info a img {
-    vertical-align: middle;
-  }
-  
-  .nome {
-    text-align: right;
-    margin-top: 20px;
-    font-size: 1em;
-    color: #232F3E;
-    margin-right: 40px;
-  }
-  
-  @media (max-width: 768px) {
-    .container {
-      padding: 10px;
-    }
-  
-    .nome {
-      margin-right: 20px;
-    }
-  }
-  
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f9f9f9;
+  color: #333;
+}
+
+.orange {
+  color: #ff6f00;
+}
+
+.auth-container, .profile-container {
+  max-width: 400px;
+  margin: 50px auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+input, button {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  background: #ff6f00;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #e65c00;
+}
+
+.profile-container.hidden {
+  display: none;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile-pic-label img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.products {
+  padding: 2rem;
+  text-align: center;
+}
+
+.product {
+  background: #fff;
+  margin: 1rem auto;
+  padding: 1rem;
+  max-width: 300px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.product h3 {
+  margin: 0.5rem 0;
+}
+
+.product a {
+  display: inline-block;
+  margin-top: 0.5rem;
+  text-decoration: none;
+  background: #ff6f00;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 5px;
+}
+
+footer {
+  background: #eee;
+  padding: 2rem;
+  margin-top: 2rem;
+  position: relative;
+}
+
+footer h2.left {
+  text-align: left;
+  margin-left: 1rem;
+}
+
+footer .contact {
+  margin: 1rem 0;
+  text-align: left;
+  padding-left: 1rem;
+}
+
+footer .signature {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.insta-icon {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+}
