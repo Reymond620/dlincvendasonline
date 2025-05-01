@@ -1,45 +1,90 @@
-// script.js
+document.addEventListener("DOMContentLoaded", () => {
+  // Cadastro
+  const formCadastro = document.getElementById("formCadastro");
+  const cadastroDiv = document.getElementById("cadastro");
+  const siteDiv = document.getElementById("site");
 
-// Função para alternar tema escuro/claro
-const toggleThemeButton = document.getElementById('toggleTheme');
-const bodyElement = document.body;
-
-toggleThemeButton.addEventListener('click', () => {
-  bodyElement.classList.toggle('dark-theme');
-  toggleThemeButton.textContent = bodyElement.classList.contains('dark-theme') ? 'Tema Claro' : 'Tema Escuro';
-});
-
-// Função para alternar a aba lateral de configurações
-const settingsToggleButton = document.getElementById('settingsToggle');
-const settingsPanel = document.getElementById('settingsPanel');
-
-settingsToggleButton.addEventListener('click', () => {
-  settingsPanel.classList.toggle('active');
-});
-
-// Cadastro de informações do usuário
-const loginForm = document.getElementById('loginForm');
-const usernameField = document.getElementById('username');
-const emailField = document.getElementById('email');
-const phoneField = document.getElementById('phone');
-const passwordField = document.getElementById('password');
-const confirmPasswordField = document.getElementById('confirmPassword');
-
-loginForm.addEventListener('submit', (event) => {
-  event.preventDefault();
-
-  // Verificar se as senhas coincidem
-  if (passwordField.value !== confirmPasswordField.value) {
-    alert('As senhas não coincidem!');
-    return;
+  // Verifica se o usuário já fez o cadastro
+  if (localStorage.getItem("userLoggedIn")) {
+    cadastroDiv.style.display = "none";
+    siteDiv.style.display = "block";
+    loadUserProfile();
+  } else {
+    cadastroDiv.style.display = "block";
+    siteDiv.style.display = "none";
   }
 
-  // Salvar as informações no localStorage
-  localStorage.setItem('username', usernameField.value);
-  localStorage.setItem('email', emailField.value);
-  localStorage.setItem('phone', phoneField.value);
-  localStorage.setItem('password', passwordField.value);
+  // Função de Cadastro
+  formCadastro.addEventListener("submit", (e) => {
+    e.preventDefault();
 
-  // Exibir o perfil
-  document.getElementById('displayName').textContent = usernameField.value;
-  document.get
+    const nome = document.getElementById("nome").value;
+    const email = document.getElementById("email").value;
+    const telefone = document.getElementById("telefone").value;
+    const senha = document.getElementById("senha").value;
+    const confirmarSenha = document.getElementById("confirmarSenha").value;
+
+    if (senha !== confirmarSenha) {
+      alert("As senhas não coincidem!");
+      return;
+    }
+
+    const user = {
+      nome,
+      email,
+      telefone,
+      senha,
+    };
+
+    localStorage.setItem("user", JSON.stringify(user));
+    localStorage.setItem("userLoggedIn", true);
+    cadastroDiv.style.display = "none";
+    siteDiv.style.display = "block";
+    loadUserProfile();
+  });
+
+  // Carrega as informações do usuário
+  function loadUserProfile() {
+    const user = JSON.parse(localStorage.getItem("user"));
+    document.getElementById("userName").textContent = user.nome;
+    document.getElementById("userEmail").textContent = user.email;
+  }
+
+  // Tema Escuro/Claro
+  const botaoConfig = document.getElementById("botaoConfig");
+  const configPanel = document.getElementById("configPanel");
+  const toggleThemeBtn = document.getElementById("toggleTheme");
+
+  botaoConfig.addEventListener("click", () => {
+    configPanel.style.right = configPanel.style.right === "0px" ? "-200px" : "0px";
+  });
+
+  toggleThemeBtn.addEventListener("click", () => {
+    document.body.classList.toggle("temaEscuro");
+    toggleThemeBtn.textContent = document.body.classList.contains("temaEscuro")
+      ? "Tema Claro"
+      : "Tema Escuro";
+  });
+
+  // Foto de perfil
+  const profilePhoto = document.getElementById("profilePhoto");
+  const photoModal = document.createElement("div");
+  photoModal.id = "photoModal";
+  document.body.appendChild(photoModal);
+
+  profilePhoto.addEventListener("click", () => {
+    photoModal.style.display = "flex";
+    const img = document.createElement("img");
+    img.src = profilePhoto.src;
+    photoModal.appendChild(img);
+
+    const closeBtn = document.createElement("span");
+    closeBtn.id = "closePhotoModal";
+    closeBtn.textContent = "X";
+    photoModal.appendChild(closeBtn);
+
+    closeBtn.addEventListener("click", () => {
+      photoModal.style.display = "none";
+    });
+  });
+});

@@ -1,84 +1,93 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DL Inc. - Vendas Online</title>
+  <title>DL Inc.</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <!-- Cabeçalho -->
-  <header>
-    <div id="logo">
-      <h1>DL Inc.</h1>
-    </div>
-    <div id="settingsToggle">
-      <img src="gear-icon.png" alt="Configurações" width="30">
-    </div>
-  </header>
 
-  <!-- Aba lateral para configurações -->
-  <div id="settingsPanel">
-    <button id="toggleTheme">Tema Escuro</button>
-  </div>
+  <!-- Tela de Cadastro -->
+  <div id="cadastro" class="cadastro">
+    <h2>Cadastro de Usuário</h2>
+    <form id="formCadastro">
+      <label for="nome">Nome de Usuário:</label>
+      <input type="text" id="nome" name="nome" required>
 
-  <!-- Página inicial -->
-  <main id="mainContent">
-    <div id="profileContainer" class="hidden">
-      <div id="profileImageContainer">
-        <img id="profileImage" src="default-profile.jpg" alt="Foto de perfil">
-        <p id="displayName"></p>
-        <p id="displayEmail"></p>
-      </div>
-    </div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
 
-    <!-- Produtos -->
-    <section id="productSection">
-      <div class="product-card">
-        <img src="product1.jpg" alt="Produto 1">
-        <p>Produto 1</p>
-        <p>R$ 19,90</p>
-      </div>
-      <div class="product-card">
-        <img src="product2.jpg" alt="Produto 2">
-        <p>Produto 2</p>
-        <p>R$ 49,41</p>
-      </div>
-      <div class="product-card">
-        <img src="product3.jpg" alt="Produto 3">
-        <p>Produto 3</p>
-        <p>R$ 14,90</p>
-      </div>
-      <div class="product-card">
-        <img src="product4.jpg" alt="Produto 4">
-        <p>Produto 4</p>
-        <p>R$ 297,00</p>
-      </div>
-    </section>
-  </main>
+      <label for="telefone">Telefone (com DDD):</label>
+      <input type="text" id="telefone" name="telefone" placeholder="55+ (45) 99123-1243" required>
 
-  <!-- Cadastro -->
-  <div id="signupContainer">
-    <h2>Cadastro</h2>
-    <form id="loginForm">
-      <input type="text" id="username" placeholder="Nome de usuário" required>
-      <input type="email" id="email" placeholder="Email" required>
-      <input type="tel" id="phone" placeholder="Telefone (com DDD)" required>
-      <input type="password" id="password" placeholder="Senha" required>
-      <input type="password" id="confirmPassword" placeholder="Confirmar senha" required>
+      <label for="senha">Senha:</label>
+      <input type="password" id="senha" name="senha" required>
+
+      <label for="confirmarSenha">Confirmar Senha:</label>
+      <input type="password" id="confirmarSenha" name="confirmarSenha" required>
+
       <button type="submit">Cadastrar</button>
     </form>
   </div>
 
-  <!-- Popup para visualização da imagem -->
-  <div id="imagePopup" class="hidden">
-    <div id="popupOverlay"></div>
-    <div id="popupContent">
-      <span id="closePopup">X</span>
-      <img id="popupImg" src="default-profile.jpg" alt="Imagem de perfil maior">
+  <!-- Site Principal -->
+  <div id="site" class="site">
+    <header>
+      <div id="logo" class="logo">
+        <h1>DL Inc.</h1>
+      </div>
+
+      <!-- Botão de Engrenagem para Configurações -->
+      <div class="configuracoes">
+        <img src="engrenagem.png" id="botaoConfig" alt="Configurações">
+      </div>
+    </header>
+    <!-- Produtos -->
+    <div class="produtos">
+      <div class="produto" id="produto1">
+        <img src="produto1.jpg" alt="Produto 1">
+        <h3>Produto 1</h3>
+        <p>R$ 19,90</p>
+      </div>
+      <div class="produto" id="produto2">
+        <img src="produto2.jpg" alt="Produto 2">
+        <h3>Produto 2</h3>
+        <p>R$ 49,41</p>
+      </div>
+      <div class="produto" id="produto3">
+        <img src="produto3.jpg" alt="Produto 3">
+        <h3>Produto 3</h3>
+        <p>R$ 14,90</p>
+      </div>
+      <div class="produto" id="produto4">
+        <img src="produto4.jpg" alt="Produto 4">
+        <h3>Produto 4</h3>
+        <p>R$ 297,00</p>
+      </div>
     </div>
+
+    <!-- Informações do Usuário -->
+    <div id="userProfile">
+      <div class="fotoPerfil">
+        <img src="default_profile.jpg" id="profilePhoto" alt="Foto de Perfil">
+      </div>
+      <div class="infoPerfil">
+        <h2 id="userName">Nome do Usuário</h2>
+        <p id="userEmail">Email</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Aba Lateral de Configurações -->
+  <div id="configPanel" class="configPanel">
+    <h3>Configurações</h3>
+    <button id="toggleTheme">Tema Escuro</button>
   </div>
 
   <script src="script.js"></script>
 </body>
+
 </html>
