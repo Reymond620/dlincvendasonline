@@ -1,19 +1,29 @@
 const registerForm = document.getElementById('registerForm');
+const mainContent = document.getElementById('main-content');
 const authContainer = document.getElementById('auth-container');
-const profileContainer = document.getElementById('profile-container');
 
-const profileName = document.getElementById('profile-name');
-const profileEmail = document.getElementById('profile-email');
-const profilePicInput = document.getElementById('profile-pic');
-const profilePicPreview = document.getElementById('profile-pic-preview');
+function showProfile(user) {
+  document.getElementById('profileName').textContent = user.name;
+  document.getElementById('profileEmail').textContent = user.email;
+
+  authContainer.classList.add('hidden');
+  mainContent.classList.remove('hidden');
+}
 
 registerForm.addEventListener('submit', function (e) {
   e.preventDefault();
 
-  const name = document.getElementById('name').value;
-  const phone = document.getElementById('phone').value;
-  const email = document.getElementById('email').value;
-  const password = document.getElementById('password').value;
+  const name = document.getElementById('name').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const password = document.getElementById('password').value.trim();
+
+  const phoneRegex = /^\+55\s?\(\d{2}\)\s?\d{4,5}-\d{4}$/;
+
+  if (!phoneRegex.test(phone)) {
+    alert("Por favor, insira um número válido com DDD e código do país (ex: +55 (45) 99123-4567)");
+    return;
+  }
 
   const userData = {
     name,
@@ -23,32 +33,12 @@ registerForm.addEventListener('submit', function (e) {
   };
 
   localStorage.setItem('dl_user', JSON.stringify(userData));
-
   showProfile(userData);
 });
 
-function showProfile(user) {
-  authContainer.classList.add('hidden');
-  profileContainer.classList.remove('hidden');
-
-  profileName.textContent = user.name;
-  profileEmail.textContent = user.email;
-}
-
-window.onload = () => {
-  const savedUser = JSON.parse(localStorage.getItem('dl_user'));
-  if (savedUser) {
-    showProfile(savedUser);
-  }
-};
-
-profilePicInput.addEventListener('change', function () {
-  const file = this.files[0];
-  if (file) {
-    const reader = new FileReader();
-    reader.onload = function (e) {
-      profilePicPreview.src = e.target.result;
-    };
-    reader.readAsDataURL(file);
+window.addEventListener('load', () => {
+  const user = JSON.parse(localStorage.getItem('dl_user'));
+  if (user) {
+    showProfile(user);
   }
 });

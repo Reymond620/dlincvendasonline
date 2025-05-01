@@ -7,70 +7,79 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Tela de Cadastro/Login -->
-  <div id="auth-container" class="auth-container">
-    <h2>Bem-vindo à <span class="orange">DL inc</span></h2>
-    <p>Cadastre-se para acessar sua conta</p>
-    <form id="registerForm">
-      <input type="text" id="name" placeholder="Nome completo" required />
-      <input type="tel" id="phone" placeholder="Telefone" required />
-      <input type="email" id="email" placeholder="E-mail" required />
-      <input type="password" id="password" placeholder="Senha" required />
+  <div id="auth-container">
+    <form id="registerForm" class="auth-form">
+      <h2>Cadastre-se</h2>
+
+      <label for="name">Nome:</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="phone">Telefone (com DDD):</label>
+      <input type="tel" id="phone" name="phone" placeholder="+55 (45) 99999-9999" required />
+      <small>Ex: +55 (45) 99123-4567</small>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="password">Senha:</label>
+      <input type="password" id="password" name="password" required />
+
       <button type="submit">Cadastrar</button>
     </form>
   </div>
 
-  <!-- Perfil do Usuário -->
-  <div id="profile-container" class="profile-container hidden">
-    <div class="profile-header">
-      <label for="profile-pic" class="profile-pic-label">
-        <img id="profile-pic-preview" src="https://via.placeholder.com/40" alt="Foto de perfil">
-        <input type="file" id="profile-pic" accept="image/*" hidden>
-      </label>
+  <div id="main-content" class="hidden">
+    <header>
       <div class="profile-info">
-        <p id="profile-name">Nome</p>
-        <small id="profile-email">email@email.com</small>
+        <div class="profile-photo" id="profilePhoto"></div>
+        <div class="profile-details">
+          <span id="profileName"></span>
+          <small id="profileEmail"></small>
+        </div>
       </div>
-    </div>
+      <h1>DL inc</h1>
+    </header>
+
+    <main>
+      <!-- Seus produtos -->
+      <section class="products">
+        <div class="product">
+          <h2>Primeira Venda Online</h2>
+          <p>R$ 19,90</p>
+          <a href="https://pay.kirvano.com/3f685384-9307-4087-9b5b-e67210e7c7db?aff=2433f212-b5be-4447-a0f5-b1a85ac93cc6" target="_blank">Comprar</a>
+        </div>
+        <div class="product">
+          <h2>Primeira Venda em 24h</h2>
+          <p>R$ 49,41</p>
+          <a href="https://pay.kirvano.com/990ea318-e3e5-40e1-a7be-0dc772ba2f65?aff=65022237-65cf-454f-ab13-6f8594f798e8" target="_blank">Comprar</a>
+        </div>
+        <div class="product">
+          <h2>10 Primeiras Vendas</h2>
+          <p>R$ 14,90</p>
+          <a href="https://pay.kirvano.com/9adbf3bc-b757-46ba-a333-217680c85e1c?aff=5e5c4038-619b-44e7-926f-699e8e686a9e" target="_blank">Comprar</a>
+        </div>
+        <div class="product">
+          <h2>Destrave suas Vendas</h2>
+          <p>R$ 297,00</p>
+          <a href="https://pay.kirvano.com/818816b6-b62b-41f0-b293-ea05110fc905?aff=fcc30de4-7589-4909-a63d-bae58c2a69ab" target="_blank">Comprar</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <h3 style="color: #ff7f00;">Contato</h3>
+      <div class="contact-info">
+        <p>Email: reymondlima8@gmail.com</p>
+        <p>Telefone: +55 (45) 99818-1217</p>
+      </div>
+      <div class="footer-end">
+        <a href="https://instagram.com/dlmelhor_01" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram" class="icon" />
+        </a>
+        <small>Reymond Delavalle Lima</small>
+      </div>
+    </footer>
   </div>
-
-  <!-- Produtos -->
-  <section class="products">
-    <h1 class="orange">Nossos Produtos</h1>
-    <div class="product">
-      <h3>Primeira Venda Online</h3>
-      <p>R$ 19,90</p>
-      <a href="https://pay.kirvano.com/3f685384-9307-4087-9b5b-e67210e7c7db?aff=2433f212-b5be-4447-a0f5-b1a85ac93cc6" target="_blank">Comprar</a>
-    </div>
-    <div class="product">
-      <h3>Primeira Venda em 24 Horas</h3>
-      <p>R$ 49,41</p>
-      <a href="https://pay.kirvano.com/990ea318-e3e5-40e1-a7be-0dc772ba2f65?aff=65022237-65cf-454f-ab13-6f8594f798e8" target="_blank">Comprar</a>
-    </div>
-    <div class="product">
-      <h3>10 Primeiras Vendas</h3>
-      <p>R$ 14,90</p>
-      <a href="https://pay.kirvano.com/9adbf3bc-b757-46ba-a333-217680c85e1c?aff=5e5c4038-619b-44e7-926f-699e8e686a9e" target="_blank">Comprar</a>
-    </div>
-    <div class="product">
-      <h3>Destrave suas Vendas</h3>
-      <p>R$ 297,00</p>
-      <a href="https://pay.kirvano.com/818816b6-b62b-41f0-b293-ea05110fc905?aff=fcc30de4-7589-4909-a63d-bae58c2a69ab" target="_blank">Comprar</a>
-    </div>
-  </section>
-
-  <!-- Contato -->
-  <footer>
-    <h2 class="orange left">CONTATO</h2>
-    <div class="contact">
-      <p>Email: reymondlima8@gmail.com</p>
-      <p>Telefone: +55 (45) 99818-1217</p>
-      <a href="https://www.instagram.com/dlmelhor_01" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram" class="insta-icon">
-      </a>
-    </div>
-    <p class="signature">Reymond Delavalle Lima</p>
-  </footer>
 
   <script src="script.js"></script>
 </body>

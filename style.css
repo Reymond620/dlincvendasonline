@@ -1,116 +1,112 @@
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f9f9f9;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f7f7f7;
   color: #333;
 }
 
-.orange {
-  color: #ff6f00;
-}
-
-.auth-container, .profile-container {
+.auth-form {
   max-width: 400px;
-  margin: 50px auto;
+  margin: 80px auto;
+  padding: 2em;
   background: white;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
-input, button {
+.auth-form input,
+.auth-form button {
+  display: block;
   width: 100%;
-  padding: 10px;
-  margin: 8px 0;
-  border-radius: 5px;
+  margin: 10px 0;
+  padding: 12px;
+  border-radius: 6px;
   border: 1px solid #ccc;
 }
 
-button {
-  background: #ff6f00;
+.auth-form button {
+  background-color: #ff7f00;
   color: white;
   border: none;
+  font-weight: bold;
   cursor: pointer;
 }
 
-button:hover {
-  background: #e65c00;
-}
-
-.profile-container.hidden {
+.hidden {
   display: none;
 }
 
-.profile-header {
+header {
+  padding: 1em;
+  background-color: #fff;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 10px;
+  border-bottom: 2px solid #eee;
 }
 
-.profile-pic-label img {
+.profile-info {
+  display: flex;
+  align-items: center;
+}
+
+.profile-photo {
   width: 40px;
   height: 40px;
+  background-color: gray;
   border-radius: 50%;
-  cursor: pointer;
+  margin-right: 10px;
+}
+
+.profile-details span {
+  font-weight: bold;
+}
+
+main {
+  padding: 2em;
 }
 
 .products {
-  padding: 2rem;
-  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
 }
 
 .product {
-  background: #fff;
-  margin: 1rem auto;
-  padding: 1rem;
-  max-width: 300px;
-  border-radius: 10px;
-  border: 1px solid #ddd;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-}
-
-.product h3 {
-  margin: 0.5rem 0;
+  background-color: #fff;
+  padding: 1.5em;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
 .product a {
   display: inline-block;
-  margin-top: 0.5rem;
-  text-decoration: none;
-  background: #ff6f00;
+  margin-top: 10px;
+  background-color: #ff7f00;
+  padding: 10px 20px;
   color: white;
-  padding: 8px 12px;
-  border-radius: 5px;
+  text-decoration: none;
+  border-radius: 8px;
 }
 
 footer {
-  background: #eee;
-  padding: 2rem;
-  margin-top: 2rem;
-  position: relative;
+  background-color: #eee;
+  padding: 1.5em;
+  margin-top: 2em;
 }
 
-footer h2.left {
-  text-align: left;
-  margin-left: 1rem;
+.contact-info {
+  margin-bottom: 1em;
 }
 
-footer .contact {
-  margin: 1rem 0;
-  text-align: left;
-  padding-left: 1rem;
+.footer-end {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-footer .signature {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  font-size: 0.85rem;
-  color: #666;
-}
-
-.insta-icon {
-  width: 25px;
-  height: 25px;
-  vertical-align: middle;
+.icon {
+  width: 24px;
+  height: 24px;
 }
